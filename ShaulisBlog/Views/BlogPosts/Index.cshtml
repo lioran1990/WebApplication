@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ShaulisBlog.Models.BlogPost>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3>Post Management</h3>
+<p>
+    @using (Html.BeginForm())
+    {
+    <p>
+        Post Title: @Html.TextBox("PostTitle")<br />
+        Author Name: @Html.TextBox("AuthorName")<br />
+        <input type="submit" value="Filter" />
+    </p>
+    }
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model._title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model._author)
+        </th>
+        @*<th>
+        @Html.DisplayNameFor(model => model._websiteOfAuthor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model._releaseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model._text)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model._image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model._video)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item._title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item._author)
+        </td>
+        @*<td>
+        @Html.DisplayFor(modelItem => item._websiteOfAuthor)
+        </td>
+        <td>
+        @Html.DisplayFor(modelItem => item._releaseDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item._text)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item._image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item._video)
+        </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            <br />
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            <br />
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            <br />
+            @Html.ActionLink("Comments Management", "Index", "BlogComments", new { id = item.ID }, null)
+        </td>
+    </tr>
+   
+}
+    <h3>
+        @Html.ActionLink("Create New", "Create")
+    </h3>
+</table>

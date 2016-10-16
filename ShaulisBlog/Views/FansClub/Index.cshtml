@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ShaulisBlog.Models.Fan>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+    @using (Html.BeginForm())
+    {
+        <h3>
+            Search Filter
+        </h3>
+        <div>
+            First Name:@Html.TextBox("firstName") <br />
+            Last Name: @Html.TextBox("lastName") <br />
+            Gender: @Html.DropDownList("gender", "All")<br />
+            <input type="submit" value="Filter" />
+        </div>
+    }
+    
+</p>
+<table id="cssTable" border="1" >
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model._firstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model._lastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model._gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model._birthDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model._seniority)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item._firstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item._lastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item._gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item._birthDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item._seniority)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

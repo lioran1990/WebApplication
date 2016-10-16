@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ShaulisBlog.Models.BlogComment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BlogPost._title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model._title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model._author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model._websiteOfAuthor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model._text)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BlogPost._title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item._title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item._author)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item._websiteOfAuthor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item._text)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CommentID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CommentID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CommentID })
+        </td>
+    </tr>
+}
+
+</table>

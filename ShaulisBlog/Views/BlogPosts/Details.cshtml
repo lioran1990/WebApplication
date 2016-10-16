@@ -1,0 +1,53 @@
+﻿@model ShaulisBlog.Models.BlogPost
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BlogPost</h4>
+    <hr />
+    <section>
+        <article class="blogPost">
+            <header>
+                <h2>@Model._title</h2>
+                <p>Posted on @Model._releaseDate  by <a href="@Model._websiteOfAuthor">@Model._author</a> - <a href="#comments"> @Model.Comments.Count  Comments</a></p>
+            </header>
+            <div>
+                <p>@Model._text</p>
+            </div>
+        </article>
+    </section>
+
+    <section>
+        <p>
+            <img src="@Model._image" />
+        </p>
+        <p>
+            <iframe width="420" height="345" src="@Url.Content(@Model._video)"></iframe>
+        </p>
+    </section>
+    <section id="comments">
+        <h3> Comments </h3>
+        @foreach (var comment in Model.Comments)
+        {
+            <article>
+                <header>
+                    <a href="@comment._websiteOfAuthor">@comment._author</a>
+                </header>
+                <p style="font-weight:bold">@comment._title</p>
+                <p>@comment._text</p>
+               
+            </article>
+            
+        }
+    </section>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

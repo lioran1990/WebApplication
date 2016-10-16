@@ -1,0 +1,58 @@
+﻿@model ShaulisBlog.Models.BlogComment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BlogComment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogPost._title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BlogPost._title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model._title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model._author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._author)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model._websiteOfAuthor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._websiteOfAuthor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model._text)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._text)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CommentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
