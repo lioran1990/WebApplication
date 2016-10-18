@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using ShaulisBlog.Models;
+using System;
 
 namespace ShaulisBlog.Controllers
 {
@@ -10,13 +11,40 @@ namespace ShaulisBlog.Controllers
     {
         private ShaulisBlogContext db = new ShaulisBlogContext();
 
-        // GET: BlogComments
-        public ActionResult Index()
+        public ActionResult Index(int ?id,string commentTitle,string commentAuthor,string commentContent)
+        {
+            if (id.HasValue)
+            {
+                var blogComments = db.BlogComments.Include(c => c.BlogPost);
+                
+                if (!String.IsNullOrEmpty(commentTitle))
+                {
+                    blogComments = blogComments.Where(s => s._author.Contains(commentTitle));
+                }
+                if (!String.IsNullOrEmpty(commentAuthor))
+                {
+                    blogComments = blogComments.Where(s => s._author.Contains(commentAuthor));
+                }
+                if (!String.IsNullOrEmpty(commentContent))
+                {
+                    blogComments = blogComments.Where(s => s._author.Contains(commentContent));
+                }
+                return View(blogComments.ToList().Where(c => c.PostId == id));
+            }
+            else
+            {
+                
+                var blogComments = db.BlogComments.Include(b => b.BlogPost);
+                return View(blogComments.ToList());
+            }
+
+            
+        }
+        /*public ActionResult Index()
         {
             var blogComments = db.BlogComments.Include(b => b.BlogPost);
             return View(blogComments.ToList());
-        }
-
+        }*/
         // GET: BlogComments/Details/5
         public ActionResult Details(int? id)
         {
@@ -33,7 +61,7 @@ namespace ShaulisBlog.Controllers
         }
 
         // GET: BlogComments/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
             ViewBag.PostId = new SelectList(db.Posts, "ID", "_title");
             return View();

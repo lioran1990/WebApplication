@@ -1,14 +1,52 @@
 ﻿@model IEnumerable<ShaulisBlog.Models.BlogComment>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Comments";
 }
 
-<h2>Index</h2>
+<h2>Comments</h2>
+@using (Html.BeginForm())
+{
+    <table border="0" align="center">
+        <tr>
+            <th colspan="2">
+                <h3>Search Bar</h3>
+            </th>
+        </tr>
+        
+        <tr>
+            <td>
+                Comment Title:
+            </td>
+            <td>
+                <input type="text" name="commentTitle">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Comment Author:
+            </td>
+            <td>
+                <input type="text" name="commentAuthor">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Content(Contains):
+            </td>
+            <td>
+                <input type="text" name="commentContent">
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2">
+                <input type="submit" value="Filter" style="float: right;">
+            </th>
+        </tr>
+    </table>
+}
+<h4>@Html.ActionLink("Create New Comment", "Create")</h4>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -49,7 +87,7 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.CommentID }) |
             @Html.ActionLink("Details", "Details", new { id=item.CommentID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CommentID })
+            @Html.ActionLink("Delete", "Delete", new { id=item.CommentID })|
         </td>
     </tr>
 }

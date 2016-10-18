@@ -3,10 +3,8 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Hablog Shel Shauli</h2>
 <h3>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New Blog Post", "Create")
 </h3>
 <section>
     <form action="action_page.php">
@@ -85,8 +83,10 @@
     </form>
 </section>
 
+
 @foreach (var item in Model)
 {
+    <hr size="5" noshade>
     <section>
         <article class="blogPost">
             <header>
