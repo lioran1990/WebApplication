@@ -64,6 +64,7 @@ namespace ShaulisBlog.Controllers
         {
             if (ModelState.IsValid)
             {
+                blogPost._releaseDate = DateTime.Now;
                 db.Posts.Add(blogPost);
                 db.SaveChanges();
 

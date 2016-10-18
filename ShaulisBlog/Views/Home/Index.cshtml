@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 <h3>
-    @Html.ActionLink("Create New Blog Post", "Create")
+    @Html.ActionLink("Add New Post to Blog", "Create", "BlogPosts")
 </h3>
 <section>
     <form action="action_page.php">
@@ -59,11 +59,7 @@
                     Minimum Comments:
                 </td>
                 <td>
-                    Number of comments :
-                    <input type="range" name="NumOfCom" id="NumOfComId" value="3" min="0" max="10" oninput="NumOfComOutputId.value = NumOfComId.value">
-                    <output name="NumOfComOutput" id="NumOfComOutputId" value="3"></output>
-                    <br />
-                    <input type="range" name="points" min="1" max="10" value="5" step="1" list="options"  oninput="NumOfComOutputId.value = NumOfComId.value">
+                    <input type="range" name="points" id="NumOfComId" min="1" max="10" value="5" step="1" list="options"  oninput="NumOfComOutputId.value = NumOfComId.value">
                     <output name="NumOfComOutput" id="NumOfComOutputId"> 5</output>
                     <datalist id="options">
                         <option>1</option>

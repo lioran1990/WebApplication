@@ -12,7 +12,10 @@ namespace ShaulisBlog.Controllers
         private ShaulisBlogContext db = new ShaulisBlogContext();
         public ActionResult Index()
         {
-            return View(db.Posts.ToList());
+            List<BlogPost> first = new List<BlogPost>();
+            IQueryable<BlogPost> posts = (from c in db.Posts orderby c._releaseDate descending select c).Take(1);
+            first.Add(posts.First());
+            return View(first);
         }
 
        
