@@ -4,7 +4,21 @@
     ViewBag.Title = "Create";
 }
 
+<script type="text/javascript">
+$(document).ready(function(){
+    $('input[type="checkbox"]').click(function(){
+        if($(this).attr("value")=="pic"){
+            $(".imgbla").toggle();
+        }
+        if($(this).attr("value")=="vid"){
+            $(".vidbla").toggle();
+        }
+    });
+});
+</script>
+
 <h2>Create</h2>
+
 
 @using (Html.BeginForm()) 
 {
@@ -54,7 +68,13 @@
             </div>
         </div>
 
-        <div class="form-group">
+
+        <div>
+            <label><input type="checkbox" name="pic" value="pic" checked /> add picture </label>
+            <label><input type="checkbox" name="vid" value="vid" checked /> add video </label>
+        </div>
+
+        <div class="form-group" id="ImgLink" class="imgbla">
             @Html.LabelFor(model => model._image, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model._image, new { htmlAttributes = new { @class = "form-control" } })
@@ -62,7 +82,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="VidLink" class="vidbla">
             @Html.LabelFor(model => model._video, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model._video, new { htmlAttributes = new { @class = "form-control" } })

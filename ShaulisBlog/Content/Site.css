@@ -86,6 +86,18 @@ nav {
 				nav ul li a:hover {
 					color: #fff;
 				}
+
+            #imgrot:hover {
+              transform:rotate(720deg) scale(1.5,1.5);
+            }
+
+            #imgrot {
+              height:20px;
+              width:20px;
+                
+              text-align:center;
+              transition: all 2s ease-in-out;
+            }
 			
 			nav ul li.selected a {
 				color: #fff;

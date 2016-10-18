@@ -78,7 +78,7 @@ namespace ShaulisBlog.Controllers
             {
                 db.BlogComments.Add(blogComment);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id = blogComment.PostId });
             }
 
             ViewBag.PostId = new SelectList(db.Posts, "ID", "_title", blogComment.PostId);
@@ -112,7 +112,7 @@ namespace ShaulisBlog.Controllers
             {
                 db.Entry(blogComment).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id = blogComment.PostId });
             }
             ViewBag.PostId = new SelectList(db.Posts, "ID", "_title", blogComment.PostId);
             return View(blogComment);
@@ -141,7 +141,7 @@ namespace ShaulisBlog.Controllers
             BlogComment blogComment = db.BlogComments.Find(id);
             db.BlogComments.Remove(blogComment);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { id = blogComment.PostId });
         }
 
         protected override void Dispose(bool disposing)

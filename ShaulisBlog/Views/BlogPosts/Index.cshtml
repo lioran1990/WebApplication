@@ -72,9 +72,11 @@
         <td>
             @Html.DisplayFor(modelItem => item._title)
         </td>
+
         <td>
-            @Html.DisplayFor(modelItem => item._author)
+            <a href="http://@item._websiteOfAuthor">@Html.DisplayFor(modelItem => item._author)</a>
         </td>
+
         @*<td>
         @Html.DisplayFor(modelItem => item._websiteOfAuthor)
         </td>
