@@ -19,7 +19,7 @@ namespace ShaulisBlog.Controllers
                 
                 if (!String.IsNullOrEmpty(commentTitle))
                 {
-                    blogComments = blogComments.Where(s => s._author.Contains(commentTitle));
+                    blogComments = blogComments.Where(s => s._title.Contains(commentTitle));
                 }
                 if (!String.IsNullOrEmpty(commentAuthor))
                 {
@@ -27,7 +27,7 @@ namespace ShaulisBlog.Controllers
                 }
                 if (!String.IsNullOrEmpty(commentContent))
                 {
-                    blogComments = blogComments.Where(s => s._author.Contains(commentContent));
+                    blogComments = blogComments.Where(s => s._text.Contains(commentContent));
                 }
                 return View(blogComments.ToList().Where(c => c.PostId == id));
             }

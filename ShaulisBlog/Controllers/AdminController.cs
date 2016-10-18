@@ -730,7 +730,7 @@ namespace ShaulisBlog.Controllers
         {
             // Get roles the user is not in
             var colAllRoles = RoleManager.Roles.Select(x => x.Name).ToList();
-            RoleManager.Roles
+            
 
             // Go get the roles for an individual
             ApplicationUser user = UserManager.FindByName(UserName);

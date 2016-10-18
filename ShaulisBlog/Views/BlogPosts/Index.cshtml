@@ -48,7 +48,8 @@
         </td>
         <td dir="ltr">
             @Html.DisplayName("Actions")
-        </td>
+         </td>
+
         @*<th>
         @Html.DisplayNameFor(model => model._websiteOfAuthor)
         </th>
@@ -93,13 +94,21 @@
             @Html.DisplayFor(modelItem => item._video)
         </td>*@
         <td dir="ltr">
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+        @if (User.IsInRole("Administrator"))
+        {
+            @Html.ActionLink("Edit |", "Edit", new { id=item.ID }) 
             <br />
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete |", "Delete", new { id=item.ID })
             <br />
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID }) |
+            @Html.ActionLink("Comments Management |", "Index", "BlogComments", new { id = item.ID },null)
             <br />
-            @Html.ActionLink("Comments Management", "Index", "BlogComments", new { id = item.ID },null)|
+        }  
+        @Html.ActionLink("Details |", "Details", new { id = item.ID })
+
+
+            
+
+            
         </td>
     </tr>
    
