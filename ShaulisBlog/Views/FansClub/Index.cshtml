@@ -48,27 +48,30 @@
     
 </p>
 <h4>@Html.ActionLink("Add New Fan to Club", "Create")</h4>
-<table id="cssTable" border="1" >
+<table id="cssTable" border="1" align="center">
     <tr>
-        <th>
+        <td>
             @Html.DisplayNameFor(model => model._firstName)
-        </th>
-        <th>
+        </td>
+        <td>
             @Html.DisplayNameFor(model => model._lastName)
-        </th>
-        <th>
+        </td>
+        <td>
             @Html.DisplayNameFor(model => model._gender)
-        </th>
-        <th>
+        </td>
+        <td>
             @Html.DisplayNameFor(model => model._birthDate)
-        </th>
-        <th>
+        </td>
+        <td>
             @Html.DisplayNameFor(model => model._seniority)
-        </th>
-        <th></th>
+        </td>
+        <td>
+            @Html.DisplayName("Actions")
+        </td>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item._firstName)
@@ -86,9 +89,12 @@
             @Html.DisplayFor(modelItem => item._seniority)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        @if (User.IsInRole("Administrator"))
+        {
+            @Html.ActionLink("Edit | ", "Edit", new { id = item.ID })
+            @Html.ActionLink("Delete | ", "Delete", new { id = item.ID })
+        }
+            @Html.ActionLink("Details ", "Details", new { id = item.ID })
         </td>
     </tr>
 }

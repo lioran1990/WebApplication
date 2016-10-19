@@ -14,6 +14,7 @@ namespace ShaulisBlog.Models
         public int PostId { get; set; }
         [DisplayName("Comment Title")]
         public string _title { get; set; }
+        
         [DisplayName("Comment Author")]
         public string _author { get; set; }
         [DisplayName("Author Website")]

@@ -26,12 +26,15 @@
         <ul>
             <li class="selected"><a href="#">@Html.ActionLink("Blog", "Index", "Home")</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="#">@Html.ActionLink("Fans Club", "Index", "FansClub")</a></li>
-            <li><a href="#">@Html.ActionLink("Post Manage", "Index", "BlogPosts")</a></li>
-            
-            @if (User.IsInRole("Administrator"))
+
+            @if (Request.IsAuthenticated)
             {
-                <li><a href="#">@Html.ActionLink("Admin Panel", "Index", "Admin")</a></li>
+                <li><a href="#">@Html.ActionLink("Fans Club", "Index", "FansClub")</a></li>
+                <li><a href="#">@Html.ActionLink("Post Manage", "Index", "BlogPosts")</a></li>
+                if (User.IsInRole("Administrator"))
+                {
+                    <li><a href="#">@Html.ActionLink("Admin Panel", "Index", "Admin")</a></li>
+                }
             }
         
             

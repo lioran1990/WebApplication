@@ -109,7 +109,11 @@
         </p>
     </section>
     <section id="comments">
-        <h3> Comments </h3>
+        @if (item.Comments.ToArray().Length > 0)
+        {
+            <h3> Comments </h3>
+        }
+        
         @foreach (var comment in item.Comments)
         {
             <article>
@@ -121,28 +125,35 @@
             </article>
         }
     </section>
-    using (Html.BeginForm("postComment", "Home", FormMethod.Post))
-    {
-        @Html.AntiForgeryToken()
-        <h3>Post a comment</h3>
+    <section>
+        @if (User.IsInRole("Administrator"))
+        {
+            using (Html.BeginForm("postComment", "Home", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <h3>Post a comment</h3>
 
-        <input type="hidden" name="PostID" value="@item.ID" />
-            <p>
-                <label for="Title">Title</label>
-                <input name="Title" id="Title" type="text" required />
-            </p>
-            <p>
-                <label for="AuthorName">Author Name</label>
-                <input name="AuthorName" id="AuthorName" type="text" required />
-            </p>
-            <p>
-                <label for="AuthorSite">Your Site</label>
-                <input name="AuthorSite" id="AuthorSite" type="url" />
-            </p>
-            <p>
-                <label for="Content">Content</label>
-                <textarea name="Content" id="Content" rows="5" cols="40" required></textarea>
-            </p>
-            <p><input type="submit" value="Post comment" /></p>
-    }
+                    <input type="hidden" name="PostID" value="@item.ID" />
+                    <p>
+                        <label for="Title">Title</label>
+                        <input name="Title" id="Title" type="text" required />
+                    </p>
+                    <p>
+                        <label for="AuthorName">Author Name</label>
+                        <input name="AuthorName" id="AuthorName" type="text" required />
+                    </p>
+                    <p>
+                        <label for="AuthorSite">Your Site</label>
+                        <input name="AuthorSite" id="AuthorSite" type="url" />
+                    </p>
+                    <p>
+                        <label for="Content">Content</label>
+                        <textarea name="Content" id="Content" rows="5" cols="40" required></textarea>
+                    </p>
+                    <p><input type="submit" value="Post comment" /></p>
+            }
+        }
+        
+    </section>
+    
 }
