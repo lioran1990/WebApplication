@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ShaulisBlog.Models.BlogPost>
+﻿ @model IEnumerable<ShaulisBlog.Models.BlogPost>
 
 @{
     ViewBag.Title = "Index";
@@ -6,6 +6,13 @@
 <h3>
     @Html.ActionLink("Add New Post to Blog", "Create", "BlogPosts")
 </h3>
+@if (User.IsInRole("Administrator"))
+{
+    <h3>
+        @Html.ActionLink("Watch statistics", "", "Statistics")
+    </h3>
+}
+
 <section>
     <form action="action_page.php">
         <table border="0">
