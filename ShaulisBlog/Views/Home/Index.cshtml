@@ -6,6 +6,12 @@
 <h3>
     @Html.ActionLink("Add New Post to Blog", "Create", "BlogPosts")
 </h3>
+@if (User.IsInRole("Administrator"))
+{
+    <h3>
+        @Html.ActionLink("Watch statistics", "", "Statistics")
+    </h3>
+}
 <!-- Search section -->
 <section id="search">
     @using (Ajax.BeginForm("FilterPosts", "Home", new AjaxOptions
