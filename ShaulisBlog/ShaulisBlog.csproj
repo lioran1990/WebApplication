@@ -218,6 +218,10 @@
     <Compile Include="Migrations\201610211139436_2110161439.Designer.cs">
       <DependentUpon>201610211139436_2110161439.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610211400176_211016.cs" />
+    <Compile Include="Migrations\201610211400176_211016.Designer.cs">
+      <DependentUpon>201610211400176_211016.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BlogComment.cs" />
@@ -330,6 +334,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610211139436_2110161439.resx">
       <DependentUpon>201610211139436_2110161439.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610211400176_211016.resx">
+      <DependentUpon>201610211400176_211016.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

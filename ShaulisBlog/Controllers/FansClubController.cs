@@ -46,7 +46,7 @@ namespace ShaulisBlog.Controllers
             }
             return View(fans);
         }
-        public ActionResult JoinCommentToFan()
+        /*public ActionResult JoinCommentToFan()
         {
             IEnumerable<CommentToFan> query = from f in db.Fans.AsEnumerable()
                                               join c in db.BlogComments on (f._firstName + f._lastName) equals c._author
@@ -56,7 +56,7 @@ namespace ShaulisBlog.Controllers
                                                   fan = f,
                                               };
             return View(query);
-        }
+        }*/
         // GET: Fans/Details/5
         public ActionResult Details(int? id)
         {
