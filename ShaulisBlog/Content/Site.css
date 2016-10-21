@@ -399,3 +399,58 @@ footer {
 		footer ul li a {
 			display: block;
 		}
+
+/*------------------------------
+=STATISTICS
+------------------------------*/
+
+.statisticsResult {
+    display:none;
+}
+
+.statisticsQuestion {
+   margin-top:8px;
+   margin-bottom:8px;
+    cursor:pointer;
+    color:#000000;
+    font-size:15px;
+    font-weight:bold;
+    -webkit-transition-property:color, text;
+    -webkit-transition-duration: 0.5s, 0.5s;
+    -webkit-transition-timing-function: linear, ease-in;
+    -moz-transition-property:color, text;
+    -moz-transition-duration:0.5s;
+    -moz-transition-timing-function: linear, ease-in;
+
+    -o-transition-property:color, text;
+    -o-transition-duration:0.5s;
+    -o-transition-timing-function: linear, ease-in;
+}
+
+.statisticsQuestion:hover {
+    color:#f25716;
+}
+
+
+.bar {
+  fill: #78a31b;
+}
+
+.bar:hover {
+  fill: #568123;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}

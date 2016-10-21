@@ -210,22 +210,23 @@
     <Compile Include="Controllers\FansClubController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610202129389_Initial.cs" />
-    <Compile Include="Migrations\201610202129389_Initial.Designer.cs">
-      <DependentUpon>201610202129389_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201610211139436_2110161439.cs" />
+    <Compile Include="Migrations\201610211139436_2110161439.Designer.cs">
+      <DependentUpon>201610211139436_2110161439.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BlogComment.cs" />
     <Compile Include="Models\BlogPost.cs" />
-    <Compile Include="Models\CommentToFan.cs" />
     <Compile Include="Models\Fan.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ShaulisBlogContext.cs" />
+    <Compile Include="Models\Statistics.cs" />
     <Compile Include="Models\UserRolesDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -261,6 +262,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Statistics.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -312,6 +314,7 @@
     <Content Include="Views\BlogPosts\Details.cshtml" />
     <Content Include="Views\BlogPosts\Edit.cshtml" />
     <Content Include="Views\BlogPosts\Index.cshtml" />
+    <Content Include="Views\BlogComments\Create.cshtml" />
     <Content Include="Views\BlogComments\Delete.cshtml" />
     <Content Include="Views\BlogComments\Details.cshtml" />
     <Content Include="Views\BlogComments\Edit.cshtml" />
@@ -322,8 +325,12 @@
     <Content Include="Views\Admin\EditUser.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\ViewAllRoles.cshtml" />
-    <Content Include="Views\BlogComments\Create.cshtml" />
-    <Content Include="Views\FansClub\JoinCommentToFan.cshtml" />
+    <Content Include="Views\Statistics\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201610211139436_2110161439.resx">
+      <DependentUpon>201610211139436_2110161439.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -333,11 +340,7 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610202129389_Initial.resx">
-      <DependentUpon>201610202129389_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

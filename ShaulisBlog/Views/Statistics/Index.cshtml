@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Statistics";
+}
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="~/Scripts/Statistics.js"></script>
+
+<h2>Shaulis Blog Statistics</h2>
+
+<div id="ShowPostsPerDay" class="statisticsQuestion">Click to see how many posts were added per day!</div>
+<div id="ShowPostsPerDayResult" class="statisticsResult"></div>
+
+<div id="ShowPostsAuthor" class="statisticsQuestion">Click to see how many posts every author posted!</div>
+<div id="ShowPostsAuthorResult" class="statisticsResult"></div>
+
+@section Scripts {
+    <script type="text/JavaScript">
+
+        $(document).ready(function (e) {
+            //Selected("#statistics");
+            $('#ShowPostsPerDay').click(function (e) { Statistics.ShowHideDetails(e.target.id); });
+            $('#ShowPostsAuthor').click(function (e) { Statistics.ShowHideDetails(e.target.id); });
+        });
+
+    </script>
+}
