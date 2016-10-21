@@ -4,6 +4,7 @@ using System.Net;
 using System.Web.Mvc;
 using ShaulisBlog.Models;
 using System;
+using System.Collections.Generic;
 
 namespace ShaulisBlog.Controllers
 {
@@ -46,6 +47,8 @@ namespace ShaulisBlog.Controllers
             return View(blogComments.ToList());
         }*/
         // GET: BlogComments/Details/5
+
+        
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -78,6 +81,7 @@ namespace ShaulisBlog.Controllers
             {
                 db.BlogComments.Add(blogComment);
                 db.SaveChanges();
+                ViewBag.PostId = new SelectList(db.Posts, "ID", "_title", blogComment.PostId);
                 return RedirectToAction("Index", new { id = blogComment.PostId });
             }
 

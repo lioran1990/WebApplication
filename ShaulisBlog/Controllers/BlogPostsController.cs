@@ -18,10 +18,10 @@ namespace ShaulisBlog.Controllers
         {
             return View(db.Posts.ToList());
         }*/
-        public ActionResult Index(string postTitle,string authorName)
-        {           
+        public ActionResult Index(string postTitle, string authorName)
+        {
             var blogPosts = from post in db.Posts
-                       select post;
+                            select post;
 
             if (!String.IsNullOrEmpty(postTitle))
             {
@@ -52,6 +52,7 @@ namespace ShaulisBlog.Controllers
         // GET: BlogPosts/Create
         public ActionResult Create()
         {
+
             return View();
         }
 
@@ -76,6 +77,7 @@ namespace ShaulisBlog.Controllers
                 //blogPost._video = video;*/
                 return RedirectToAction("Index");
             }
+
 
             return View(blogPost);
         }

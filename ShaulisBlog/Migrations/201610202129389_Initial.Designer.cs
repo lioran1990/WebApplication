@@ -7,13 +7,13 @@ namespace ShaulisBlog.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class _1709161515 : IMigrationMetadata
+    public sealed partial class Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(_1709161515));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201609171216324_17-09-16-15-15"; }
+            get { return "201610202129389_Initial"; }
         }
         
         string IMigrationMetadata.Source

@@ -6,132 +6,108 @@
 <h3>
     @Html.ActionLink("Add New Post to Blog", "Create", "BlogPosts")
 </h3>
-<section>
-    <form action="action_page.php">
-        <table border="0">
-            <tr>
-                <th colspan="2">
-                    <h3>Search Bar</h3>
-                </th>
-            </tr>
-            <tr>
-                <td>
-                    From Date:
-                </td>
-                <td>
-                    <input type="date" name="startDate" id="startDate">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    To Date:
-                </td>
-                <td>
-                    <input type="date" name="endDate" id="endDate">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Author:
-                </td>
-                <td>
-                    <input type="text" name="author">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    E-mail:
-                </td>
-                <td>
-                    <input type="email" name="email">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Key words:
-                </td>
-                <td>
-                    <input type="text" name="email">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Minimum Comments:
-                </td>
-                <td>
-                    <input type="range" name="points" id="NumOfComId" min="1" max="10" value="5" step="1" list="options"  oninput="NumOfComOutputId.value = NumOfComId.value">
-                    <output name="NumOfComOutput" id="NumOfComOutputId"> 5</output>
-                    <datalist id="options">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
-                    </datalist>
-                </td>
-            </tr>
-            <tr>
-                <th colspan="2">
-                    <input type="submit" value="Filter" style="float: right;">
-                </th>
-            </tr>
-        </table>
-    </form>
+<!-- Search section -->
+<section id="search">
+    @using (Ajax.BeginForm("FilterPosts", "Home", new AjaxOptions
+    {
+        HttpMethod = "Post",
+        UpdateTargetId = "PostsLits"
+    }))
+    {
+        <h3>Search post</h3>
+        <p>
+            <label for="fromDate">* From Date: </label>
+            <input name="fromDate" id="fromDate" type="date" required />
+            <label for="untilDate">* Until Date: </label>
+            <input name="untilDate" id="untilDate" type="date" required />
+        </p>
+        <p>
+            <label for="title">Post Title: </label>
+            <input name="postTitle" id="title" type="text" />
+        </p>
+        <p>
+            <label for="commentWriter">Comment Author: </label>
+            <input name="commentWriter" id="commentWriter" type="text" />
+        </p>
+        <p>
+            <label for="wordsInComments">Comments contain: </label>
+            <input name="wordsInComments" id="wordsInComments" type="text" />
+        </p>
+        <p>
+            <label for="minComments">Minimum Comments: </label>            
+            <input type="range" name="minComments" id="minComments" min="0" max="10" value="5" step="1" list="options" oninput="NumOfComOutputId.value = minComments.value">
+            <output name="NumOfComOutput" id="NumOfComOutputId"> 5</output>
+            <datalist id="options">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </datalist>
+        </p>
+        <input type="submit" value="Search"  style="float: right;" >
+    }
 </section>
 
-
-@foreach (var item in Model)
+<!-- Blog section - Posts & Comments -->
+@if (Model != null)
 {
-    <hr size="5" noshade>
-    <section>
-        <article class="blogPost">
-            <header>
-                <h2>@item._title</h2>
-                <p>Posted on @item._releaseDate  by <a href="@item._websiteOfAuthor">@item._author</a> - <a href="#comments"> @item.Comments.Count  Comments</a></p>
-            </header>
-            <div>
-                <p>@item._text</p>
-            </div>
-        </article>
-    </section>
-
-    <section>
-        <p>
-            <img src="@item._image" />
-        </p>
-        <p>
-            <iframe width="420" height="345" src="@Url.Content(@item._video)"></iframe>
-        </p>
-    </section>
-    <section id="comments">
-        @if (item.Comments.ToArray().Length > 0)
-        {
-            <h3> Comments </h3>
-        }
-        
-        @foreach (var comment in item.Comments)
-        {
-            <article>
+    <hr />
+    <!-- Posts section -->
+    foreach (var item in Model)
+    {
+        <hr size="5" noshade>
+        <section>
+            <article class="blogPost">
                 <header>
-                    <a href="@comment._websiteOfAuthor">@comment._author</a>
+                    <h2>@item._title</h2>
+                    <p>Posted on @item._releaseDate  by <a href="@item._websiteOfAuthor">@item._author</a> - <a href="#comments"> @item.Comments.Count  Comments</a></p>
                 </header>
-                <p style="font-weight:bold">@comment._title</p>
-                <p>@comment._text</p>
+                <div>
+                    <p>@item._text</p>
+                </div>
             </article>
-        }
-    </section>
-    <section>
-        @if (User.IsInRole("Administrator"))
-        {
-            using (Html.BeginForm("postComment", "Home", FormMethod.Post))
+        </section>
+
+        <section>
+            <p>
+                <img src="@item._image" />
+            </p>
+            <p>
+                <iframe width="420" height="345" src="@Url.Content(@item._video)"></iframe>
+            </p>
+        </section>
+        <section id="comments">
+            @if (item.Comments.ToArray().Length > 0)
             {
-                @Html.AntiForgeryToken()
-                <h3>Post a comment</h3>
+                <h3> Comments </h3>
+            }
+            <!-- Post Comments section -->
+            @foreach (var comment in item.Comments)
+            {
+                <article>
+                    <header>
+                        <a href="@comment._websiteOfAuthor">@comment._author</a>
+                    </header>
+                    <section>                        
+                        <p>@comment._text</p>
+                    </section>
+                </article>
+            }
+        </section>
+        <!-- Post a comment section -->
+        <section>
+            @if (User.IsInRole("Administrator"))
+            {
+                using (Html.BeginForm("postComment", "Home", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <h3>Post a comment</h3>
 
                     <input type="hidden" name="PostID" value="@item.ID" />
                     <p>
@@ -151,9 +127,11 @@
                         <textarea name="Content" id="Content" rows="5" cols="40" required></textarea>
                     </p>
                     <p><input type="submit" value="Post comment" /></p>
+                }
             }
-        }
-        
-    </section>
-    
+
+        </section>
+
+    }
 }
+
