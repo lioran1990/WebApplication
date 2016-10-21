@@ -14,6 +14,15 @@ namespace ShaulisBlog.Controllers
         // GET: Statistics
         public ActionResult Index()
         {
+            try
+            {
+                statistics.GenerateStatisticFiles(); //Generate new statistic files
+            }
+            catch
+            {
+
+            }
+
             return View();
         }
 
