@@ -32,6 +32,5 @@ namespace ShaulisBlog.Models
 
         public System.Data.Entity.DbSet<ShaulisBlog.Models.BlogPost> BlogPosts { get; set; }
 
-        
     }
 }
