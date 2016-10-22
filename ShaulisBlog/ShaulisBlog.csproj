@@ -233,7 +233,6 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Addresses.cs" />
     <Compile Include="Models\BlogComment.cs" />
     <Compile Include="Models\BlogPost.cs" />
     <Compile Include="Models\Fan.cs" />

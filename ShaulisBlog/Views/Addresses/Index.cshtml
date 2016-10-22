@@ -1,16 +1,13 @@
-﻿
+﻿@model IEnumerable<string>
+
 @{
     ViewBag.Title = "Addresses";
 }
 
 <h2>Addresses</h2>
 
-<div id="floating-panel">
-    <input id="address" type="text" value="חוחית 12 רחובות">
-    <input id="submit" type="button" value="Geocode">
-</div>
 <div id="map"></div>
-<div id="errors"></div>
+<h3 dir="rtl" id="errors"></h3>
 
 @section Scripts {
     <script>
@@ -22,14 +19,13 @@
             });
             var geocoder = new google.maps.Geocoder();
 
-              // Make ajax call to get addresses
-            document.getElementById('submit').addEventListener('click', function() {
-              geocodeAddress(geocoder, map);
-            });
+            var model = @Html.Raw(Json.Encode(Model));
+            for (var i=0; i < model.length; i++) {
+                geocodeAddress(geocoder, map, model[i]);
+            }
           }
 
-          function geocodeAddress(geocoder, resultsMap) {
-            var address = document.getElementById('address').value;
+        function geocodeAddress(geocoder, resultsMap, address) {
             geocoder.geocode({'address': address}, function(results, status) {
               if (status === 'OK') {
                 resultsMap.setCenter(results[0].geometry.location);
@@ -38,7 +34,7 @@
                   position: results[0].geometry.location
                 });
               } else {
-                  //document.getElementById('errors').innerText += "לא ניתן לאתר את הכתובת:" + data + "\n";
+                  document.getElementById('errors').innerText += "לא ניתן לאתר את הכתובת:" + address + "\n";
               }
             });
           }
