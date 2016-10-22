@@ -83,7 +83,7 @@ namespace ShaulisBlog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FanID,_firstName,_lastName,_gender,_birthDate,_seniority,_address")] Fan fan)
+        public ActionResult Create([Bind(Include = "ID,_firstName,_lastName,_gender,_birthDate,_seniority,_address")] Fan fan)
         {
             if (ModelState.IsValid)
             {
@@ -115,7 +115,7 @@ namespace ShaulisBlog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "FanID,_firstName,_lastName,_gender,_birthDate,_seniority,_address")] Fan fan)
+        public ActionResult Edit([Bind(Include = "ID,_firstName,_lastName,_gender,_birthDate,_seniority,_address")] Fan fan)
         {
             if (ModelState.IsValid)
             {
