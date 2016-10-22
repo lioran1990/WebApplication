@@ -332,7 +332,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\ViewAllRoles.cshtml" />
     <Content Include="Views\Statistics\Index.cshtml" />
-    <Content Include="Views\Addresses\Addresses.cshtml" />
+    <Content Include="Views\Addresses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610211139436_2110161439.resx">

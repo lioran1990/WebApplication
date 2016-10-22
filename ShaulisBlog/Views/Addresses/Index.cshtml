@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Addresses";
+}
+
+<h2>Addresses</h2>
+
+<div id="floating-panel">
+    <input id="address" type="text" value="חוחית 12 רחובות">
+    <input id="submit" type="button" value="Geocode">
+</div>
+<div id="map"></div>
+<div id="errors"></div>
+
+@section Scripts {
+    <script>
+        
+          function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 8,
+              center: { lat: 31.771959, lng: 35.217018 }
+            });
+            var geocoder = new google.maps.Geocoder();
+
+              // Make ajax call to get addresses
+            document.getElementById('submit').addEventListener('click', function() {
+              geocodeAddress(geocoder, map);
+            });
+          }
+
+          function geocodeAddress(geocoder, resultsMap) {
+            var address = document.getElementById('address').value;
+            geocoder.geocode({'address': address}, function(results, status) {
+              if (status === 'OK') {
+                resultsMap.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                  map: resultsMap,
+                  position: results[0].geometry.location
+                });
+              } else {
+                  //document.getElementById('errors').innerText += "לא ניתן לאתר את הכתובת:" + data + "\n";
+              }
+            });
+          }
+    </script>
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6Tu_cn3LHI6cLO9JJviQP4PFZz9yHsdc&callback=initMap">
+    </script>
+}
+
+
