@@ -1,0 +1,67 @@
+﻿@model IEnumerable<ShaulisBlog.Models.Fan>
+
+@{
+    ViewBag.Title = "Addresses";
+}
+
+<h2>Addresses</h2>
+
+<div id="map"></div>
+<h3 dir="rtl" id="errors"></h3>
+
+@section Scripts {
+    <script>
+        
+          function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 8,
+              center: { lat: 31.771959, lng: 35.217018 }
+            });
+            var geocoder = new google.maps.Geocoder();
+
+            var model = @Html.Raw(Json.Encode(Model));
+            for (var i=0; i < model.length; i++) {
+                geocodeAddress(geocoder, map, model[i]);
+            }
+          }
+
+        function geocodeAddress(geocoder, resultsMap, fan) {
+            geocoder.geocode({'address': fan._address}, function(results, status) {
+              if (status === 'OK') {
+                resultsMap.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                  map: resultsMap,
+                  position: results[0].geometry.location
+                });
+
+                attachInfo(marker, fan);
+              } else {
+                  document.getElementById('errors').innerText += "לא ניתן לאתר את הכתובת:" + fan._address + "\n";
+              }
+            });
+        }
+
+        function attachInfo(marker, fan) {
+            var info = "<div dir='rtl'><div>ת.ז: " + fan.ID + "</div>" +
+                       "<div>שם פרטי: " + fan._firstName + "</div>" +
+                       "<div>שם משפחה: " + fan._lastName + "</div>" +
+                       "<div>כתובת:" + fan._address + "</div></div>";
+            var infowindow = new google.maps.InfoWindow({
+                content: info
+            });
+
+            marker.addListener('mouseover', function() {
+                infowindow.open(marker.get('map'), marker);
+            });
+            marker.addListener('mouseout', function() {
+                infowindow.close(marker.get('map'), marker);
+            });
+        }
+    </script>
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6Tu_cn3LHI6cLO9JJviQP4PFZz9yHsdc&callback=initMap">
+    </script>
+}
+
+

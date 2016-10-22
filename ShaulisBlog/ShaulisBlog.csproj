@@ -204,6 +204,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AddressesController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BlogCommentsController.cs" />
     <Compile Include="Controllers\BlogPostsController.cs" />
@@ -221,6 +222,14 @@
     <Compile Include="Migrations\201610211400176_211016.cs" />
     <Compile Include="Migrations\201610211400176_211016.Designer.cs">
       <DependentUpon>201610211400176_211016.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610221405487_omri.cs" />
+    <Compile Include="Migrations\201610221405487_omri.Designer.cs">
+      <DependentUpon>201610221405487_omri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610221423329_try.cs" />
+    <Compile Include="Migrations\201610221423329_try.Designer.cs">
+      <DependentUpon>201610221423329_try.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -330,6 +339,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\ViewAllRoles.cshtml" />
     <Content Include="Views\Statistics\Index.cshtml" />
+    <Content Include="Views\Addresses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610211139436_2110161439.resx">
@@ -337,6 +347,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610211400176_211016.resx">
       <DependentUpon>201610211400176_211016.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610221405487_omri.resx">
+      <DependentUpon>201610221405487_omri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610221423329_try.resx">
+      <DependentUpon>201610221423329_try.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

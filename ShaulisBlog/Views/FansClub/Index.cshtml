@@ -65,6 +65,9 @@
         <td>
             @Html.DisplayNameFor(model => model._seniority)
         </td>
+        <th>
+            @Html.DisplayNameFor(model => model._address)
+        </th>
         <td>
             @Html.DisplayName("Actions")
         </td>
@@ -87,6 +90,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item._seniority)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item._address)
         </td>
         <td>
         @if (User.IsInRole("Administrator"))
