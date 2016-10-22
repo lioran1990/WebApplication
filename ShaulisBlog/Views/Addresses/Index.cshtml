@@ -1,4 +1,4 @@
-﻿@model IEnumerable<string>
+﻿@model IEnumerable<ShaulisBlog.Models.Fan>
 
 @{
     ViewBag.Title = "Addresses";
@@ -25,19 +25,38 @@
             }
           }
 
-        function geocodeAddress(geocoder, resultsMap, address) {
-            geocoder.geocode({'address': address}, function(results, status) {
+        function geocodeAddress(geocoder, resultsMap, fan) {
+            geocoder.geocode({'address': fan._address}, function(results, status) {
               if (status === 'OK') {
                 resultsMap.setCenter(results[0].geometry.location);
                 var marker = new google.maps.Marker({
                   map: resultsMap,
                   position: results[0].geometry.location
                 });
+
+                attachInfo(marker, fan);
               } else {
-                  document.getElementById('errors').innerText += "לא ניתן לאתר את הכתובת:" + address + "\n";
+                  document.getElementById('errors').innerText += "לא ניתן לאתר את הכתובת:" + fan._address + "\n";
               }
             });
-          }
+        }
+
+        function attachInfo(marker, fan) {
+            var info = "<div dir='rtl'><div>ת.ז: " + fan.ID + "</div>" +
+                       "<div>שם פרטי: " + fan._firstName + "</div>" +
+                       "<div>שם משפחה: " + fan._lastName + "</div>" +
+                       "<div>כתובת:" + fan._address + "</div></div>";
+            var infowindow = new google.maps.InfoWindow({
+                content: info
+            });
+
+            marker.addListener('mouseover', function() {
+                infowindow.open(marker.get('map'), marker);
+            });
+            marker.addListener('mouseout', function() {
+                infowindow.close(marker.get('map'), marker);
+            });
+        }
     </script>
 
     <script async defer

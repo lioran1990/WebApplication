@@ -14,7 +14,7 @@ namespace ShaulisBlog.Controllers
         // GET: Addresses
         public ActionResult Index()
         {
-            return View(db.Fans.Select(x => x._address).ToList());
+            return View(db.Fans.ToList());
         }
     }
 }
