@@ -44,7 +44,6 @@ namespace ShaulisBlog.Models
 
         /* [DisplayName("Post Image")]
          public HttpPostedFileBase _image { get; set; }
-
          [DisplayName("Post Video")]
          public HttpPostedFileBase _video { get; set; }*/
 

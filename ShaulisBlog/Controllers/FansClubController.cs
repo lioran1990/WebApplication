@@ -20,17 +20,17 @@ namespace ShaulisBlog.Controllers
             return View(db.Fans.ToList());
         }*/
         // GET: Fans
-        public ActionResult Index(string firstName ,string lastName, string gender)
+        public ActionResult Index(string firstName, string lastName, string gender)
         {
             var GenderLst = new List<Gender>();
             var GenderQry = from f in db.Fans
-                           orderby f._gender
-                           select f._gender;
+                            orderby f._gender
+                            select f._gender;
 
             GenderLst.AddRange(GenderQry.Distinct());
             ViewBag.gender = new SelectList(GenderLst);
             var fans = from fan in db.Fans
-                         select fan;
+                       select fan;
 
             if (!String.IsNullOrEmpty(firstName))
             {
@@ -46,7 +46,17 @@ namespace ShaulisBlog.Controllers
             }
             return View(fans);
         }
-
+        /*public ActionResult JoinCommentToFan()
+        {
+            IEnumerable<CommentToFan> query = from f in db.Fans.AsEnumerable()
+                                              join c in db.BlogComments on (f._firstName + f._lastName) equals c._author
+                                              select new CommentToFan
+                                              {
+                                                  comment = c,
+                                                  fan = f,
+                                              };
+            return View(query);
+        }*/
         // GET: Fans/Details/5
         public ActionResult Details(int? id)
         {
@@ -73,13 +83,13 @@ namespace ShaulisBlog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,_firstName,_lastName,_gender,_birthDate,_seniority")] Fan fan)
+        public ActionResult Create([Bind(Include = "FanID,_firstName,_lastName,_gender,_birthDate,_seniority")] Fan fan)
         {
             if (ModelState.IsValid)
             {
                 db.Fans.Add(fan);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home", null);
             }
 
             return View(fan);
@@ -105,7 +115,7 @@ namespace ShaulisBlog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,_firstName,_lastName,_gender,_birthDate,_seniority")] Fan fan)
+        public ActionResult Edit([Bind(Include = "FanID,_firstName,_lastName,_gender,_birthDate,_seniority")] Fan fan)
         {
             if (ModelState.IsValid)
             {

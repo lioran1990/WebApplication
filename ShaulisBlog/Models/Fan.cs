@@ -54,9 +54,9 @@ namespace ShaulisBlog.Models
             this._seniority = copy._seniority;
         }
     }
-   /* public class FanDBContext : DbContext
-    {
-        public DbSet<Fan> Movies { get; set; }
-    }*/
+    /* public class FanDBContext : DbContext
+     {
+         public DbSet<Fan> Movies { get; set; }
+     }*/
 
 }
