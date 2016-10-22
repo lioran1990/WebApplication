@@ -38,6 +38,8 @@ namespace ShaulisBlog.Models
         [DisplayName("Years in club")]
         public double _seniority { get; set; }
 
+        public string _address { get; set; }
+
         public Fan()
         {
             counter++;
@@ -52,11 +54,7 @@ namespace ShaulisBlog.Models
             this._gender = copy._gender;
             this._birthDate = copy._birthDate;
             this._seniority = copy._seniority;
+            this._address = copy._address;
         }
     }
-    /* public class FanDBContext : DbContext
-     {
-         public DbSet<Fan> Movies { get; set; }
-     }*/
-
 }
