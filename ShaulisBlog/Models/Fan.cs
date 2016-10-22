@@ -37,7 +37,8 @@ namespace ShaulisBlog.Models
         [Required]
         [DisplayName("Years in club")]
         public double _seniority { get; set; }
-
+        [Required]
+        [DisplayName("Address")]
         public string _address { get; set; }
 
         public Fan()
