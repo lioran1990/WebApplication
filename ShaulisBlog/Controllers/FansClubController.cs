@@ -14,12 +14,7 @@ namespace ShaulisBlog.Controllers
     {
         private ShaulisBlogContext db = new ShaulisBlogContext();
 
-        // GET: Fans
-        /*public ActionResult Index()
-        {
-            return View(db.Fans.ToList());
-        }*/
-        // GET: Fans
+        
         public ActionResult Index(string firstName, string lastName, string gender)
         {
             var GenderLst = new List<Gender>();
@@ -46,18 +41,7 @@ namespace ShaulisBlog.Controllers
             }
             return View(fans);
         }
-        /*public ActionResult JoinCommentToFan()
-        {
-            IEnumerable<CommentToFan> query = from f in db.Fans.AsEnumerable()
-                                              join c in db.BlogComments on (f._firstName + f._lastName) equals c._author
-                                              select new CommentToFan
-                                              {
-                                                  comment = c,
-                                                  fan = f,
-                                              };
-            return View(query);
-        }*/
-        // GET: Fans/Details/5
+        
         public ActionResult Details(int? id)
         {
             if (id == null)
