@@ -44,8 +44,8 @@
         </p>
         <p>
             <label for="minComments">Minimum Comments: </label>            
-            <input type="range" name="minComments" id="minComments" min="0" max="10" value="5" step="1" list="options" oninput="NumOfComOutputId.value = minComments.value">
-            <output name="NumOfComOutput" id="NumOfComOutputId"> 5</output>
+            <input type="range" name="minComments" id="minComments" min="0" max="10" value="0" step="1" list="options" oninput="NumOfComOutputId.value = minComments.value">
+            <output name="NumOfComOutput" id="NumOfComOutputId"> 0</output>
             <datalist id="options">
                 <option>1</option>
                 <option>2</option>
@@ -91,6 +91,7 @@
                 <iframe width="420" height="345" src="@Url.Content(@item._video)"></iframe>
             </p>
         </section>
+
         <section id="comments">
             @if (item.Comments.ToArray().Length > 0)
             {
