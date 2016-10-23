@@ -1,0 +1,26 @@
+﻿@model IEnumerable<ShaulisBlog.Models.BlogPost>
+@{
+    ViewBag.Title = "_CommentPartial";
+}
+
+<section id="comments">
+    @if (item.Comments.ToArray().Length > 0)
+    {
+        <h3> Comments </h3>
+    }
+    <!-- Post Comments section -->
+    @foreach (var comment in item.Comments)
+    {
+        <article>
+            <header>
+                <a href="@comment._websiteOfAuthor">@comment._author</a>
+            </header>
+            <section>
+                <p>@comment._text</p>
+            </section>
+        </article>
+    }
+</section>
+
+
+
