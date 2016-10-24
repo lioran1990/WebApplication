@@ -91,27 +91,24 @@
                 <iframe width="420" height="345" src="@Url.Content(@item._video)"></iframe>
             </p>
         </section>
-        @Html.Partial("_CommentPatial")
-        @*
-    <section id="comments">
-        @if (item.Comments.ToArray().Length > 0)
-        {
-            <h3> Comments </h3>
-        }
-        <!-- Post Comments section -->
-        @foreach (var comment in item.Comments)
-        {
-            <article>
-                <header>
-                    <a href="@comment._websiteOfAuthor">@comment._author</a>
-                </header>
-                <section>
-                    <p>@comment._text</p>
-                </section>
-            </article>
-        }
-    </section>
-        *@
+        <section id="comments">
+            @if (item.Comments.ToArray().Length > 0)
+            {
+                <h3> Comments </h3>
+            }
+            <!-- Post Comments section -->
+            @foreach (var comment in item.Comments)
+            {
+                <article>
+                    <header>
+                        <a href="@comment._websiteOfAuthor">@comment._author</a>
+                    </header>
+                    <section>                        
+                        <p>@comment._text</p>
+                    </section>
+                </article>
+            }
+        </section>
         <!-- Post a comment section -->
         <section>
             @if (User.IsInRole("Administrator"))
