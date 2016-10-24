@@ -6,19 +6,9 @@
 
 <th>
     <h3>
-        @Html.ActionLink("Add New Post to Blog | ", "Create", "BlogPosts")
+        @Html.ActionLink("Add New Post to Blog", "Create", "BlogPosts")
 
-        @if (User.IsInRole("Administrator"))
-        {
-
-
-            @Html.ActionLink("Watch statistics |", "", "Statistics")
-
-
-            @Html.ActionLink(" Watch adresses", "", "Addresses")
-
-
-        }
+       
     </h3>
 </th>
 <!-- Search section -->
