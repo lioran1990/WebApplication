@@ -3,18 +3,24 @@
 @{
     ViewBag.Title = "Index";
 }
-<h3>
-    @Html.ActionLink("Add New Post to Blog", "Create", "BlogPosts")
-</h3>
-@if (User.IsInRole("Administrator"))
-{
+
+<th>
     <h3>
-        @Html.ActionLink("Watch statistics", "", "Statistics")
+        @Html.ActionLink("Add New Post to Blog | ", "Create", "BlogPosts")
+
+        @if (User.IsInRole("Administrator"))
+        {
+
+
+            @Html.ActionLink("Watch statistics |", "", "Statistics")
+
+
+            @Html.ActionLink(" Watch adresses", "", "Addresses")
+
+
+        }
     </h3>
-    <h3>
-        @Html.ActionLink("Watch adresses", "", "Addresses")
-    </h3>
-}
+</th>
 <!-- Search section -->
 <section id="search">
     @using (Ajax.BeginForm("FilterPosts", "Home", new AjaxOptions
