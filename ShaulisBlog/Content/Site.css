@@ -59,7 +59,7 @@ nav {
 	position: absolute;
 	left: 0;
 	width: 100%;
-	 background: linear-gradient(to bottom right, gray, white); 
+	 background: linear-gradient(to bottom right, #9AAB5C, white); 
 }
 
 	nav ul {
@@ -199,9 +199,9 @@ nav {
 =SIDEBAR
 ------------------------------*/
 aside section {
-	margin: 22px 0 0 22px;
+	margin: 18px 0 0 18px;
 	padding: 11px 22px;
-	background: linear-gradient(rgb(217,217,217),rgb(232,232,232)); 
+	background: linear-gradient(rgb(154, 171, 92),rgb(252, 255, 254)); 
 	/*background: url("images/sidebar_section_background.png") repeat-x;*/
 	/*background: red; /* For browsers that do not support gradients */
     /*background: -webkit-linear-gradient(red, yellow); /* For Safari 5.1 to 6.0 */
@@ -310,9 +310,12 @@ aside section {
 /*------------------------------
 =COMMENT FORM
 ------------------------------*/
+
+
 form {
 	margin-top: 21px;
 	padding-top: 22px;
+  
 	
 }
 
@@ -357,7 +360,7 @@ footer {
 	position: absolute;
 	left: 0;
 	width: 100%;
-	background: #222;
+	background: #b3c085;
 }
 
 	footer div {
@@ -396,9 +399,7 @@ footer {
 		color: #565656;
 	}
 	
-		footer ul li a {
-			display: block;
-		}
+	
 
 /*------------------------------
 =STATISTICS

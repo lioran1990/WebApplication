@@ -29,8 +29,10 @@
             <iframe width="420" height="345" src="@Url.Content(@Model._video)"></iframe>
         </p>
     </section>
+
     <section id="comments">
         <h3> Comments </h3>
+
         @foreach (var comment in Model.Comments)
         {
             <article>
