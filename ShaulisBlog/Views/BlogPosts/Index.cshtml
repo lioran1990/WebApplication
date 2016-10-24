@@ -50,21 +50,7 @@
             @Html.DisplayName("Actions")
          </td>
 
-        @*<th>
-        @Html.DisplayNameFor(model => model._websiteOfAuthor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model._releaseDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model._text)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model._image)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model._video)
-        </th>*@
+       
         <th></th>
     </tr>
 
@@ -78,37 +64,19 @@
             <a href="http://@item._websiteOfAuthor">@Html.DisplayFor(modelItem => item._author)</a>
         </td>
 
-        @*<td>
-        @Html.DisplayFor(modelItem => item._websiteOfAuthor)
-        </td>
-        <td>
-        @Html.DisplayFor(modelItem => item._releaseDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item._text)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item._image)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item._video)
-        </td>*@
+        
         <td dir="ltr">
         @if (User.IsInRole("Administrator"))
         {
-            @Html.ActionLink("Edit |", "Edit", new { id=item.ID }) 
-            <br />
-            @Html.ActionLink("Delete |", "Delete", new { id=item.ID })
-            <br />
-            @Html.ActionLink("Comments Management |", "Index", "BlogComments", new { id = item.ID },null)
-            <br />
+            @Html.ActionLink("Edit | ", "Edit", new { id=item.ID }) 
+           
+            @Html.ActionLink("Delete | ", "Delete", new { id=item.ID })
+           
+            @Html.ActionLink("Comments Management  |", "Index", "BlogComments", new { id = item.ID },null)
+         
         }  
-        @Html.ActionLink("Details |", "Details", new { id = item.ID })
-
-
-            
-
-            
+        @Html.ActionLink("Details ", "Details", new { id = item.ID })
+   
         </td>
     </tr>
    
