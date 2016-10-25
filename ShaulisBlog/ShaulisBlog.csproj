@@ -231,6 +231,10 @@
     <Compile Include="Migrations\201610221423329_try.Designer.cs">
       <DependentUpon>201610221423329_try.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610252124041_MigrationOmriNight.cs" />
+    <Compile Include="Migrations\201610252124041_MigrationOmriNight.Designer.cs">
+      <DependentUpon>201610252124041_MigrationOmriNight.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BlogComment.cs" />
@@ -347,6 +351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610221423329_try.resx">
       <DependentUpon>201610221423329_try.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610252124041_MigrationOmriNight.resx">
+      <DependentUpon>201610252124041_MigrationOmriNight.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

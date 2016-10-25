@@ -42,11 +42,6 @@ namespace ShaulisBlog.Models
         [Url]
         public string _video { get; set; }
 
-        /* [DisplayName("Post Image")]
-         public HttpPostedFileBase _image { get; set; }
-         [DisplayName("Post Video")]
-         public HttpPostedFileBase _video { get; set; }*/
-
         public BlogPost()
         {
             _releaseDate = DateTime.Now;

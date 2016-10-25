@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System;
 
 namespace ShaulisBlog.Models
 {
@@ -21,6 +22,8 @@ namespace ShaulisBlog.Models
         public string _websiteOfAuthor { get; set; }
         [DisplayName("Content")]
         public string _text { get; set; }
+
+        public DateTime CommentDate { get; set; }
 
         public virtual BlogPost BlogPost { get; set; }
 

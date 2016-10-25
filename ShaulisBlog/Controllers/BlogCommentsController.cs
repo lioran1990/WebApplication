@@ -41,12 +41,7 @@ namespace ShaulisBlog.Controllers
 
             
         }
-        /*public ActionResult Index()
-        {
-            var blogComments = db.BlogComments.Include(b => b.BlogPost);
-            return View(blogComments.ToList());
-        }*/
-        // GET: BlogComments/Details/5
+       
 
         
         public ActionResult Details(int? id)
@@ -75,11 +70,12 @@ namespace ShaulisBlog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CommentID,PostId,_title,_author,_websiteOfAuthor,_text")] BlogComment blogComment)
+        public ActionResult Create([Bind(Include = "CommentID,PostId,_title,_author,_websiteOfAuthor,_text, CommentDate")] BlogComment blogComment)
         {
             if (ModelState.IsValid)
             {
-                db.BlogComments.Add(blogComment);
+                blogComment.CommentDate = DateTime.Now;
+                db.BlogComments.Add(blogComment);                
                 db.SaveChanges();
                 ViewBag.PostId = new SelectList(db.Posts, "ID", "_title", blogComment.PostId);
                 return RedirectToAction("Index", new { id = blogComment.PostId });

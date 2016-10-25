@@ -107,7 +107,7 @@
                 using (Html.BeginForm("postComment", "Home", FormMethod.Post))
                 {
                     @Html.AntiForgeryToken()
-                    <h3>Post a comment</h3>
+                    <h3>Leave a comment</h3>
 
                     <input type="hidden" name="PostID" value="@item.ID" />
                     <p>
@@ -115,7 +115,7 @@
                         <input name="Title" id="Title" type="text" required />
                     </p>
                     <p>
-                        <label for="AuthorName">Author Name</label>
+                        <label for="AuthorName">Your Name</label>
                         <input name="AuthorName" id="AuthorName" type="text" required />
                     </p>
                     <p>
