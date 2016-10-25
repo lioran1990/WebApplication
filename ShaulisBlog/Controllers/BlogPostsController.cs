@@ -13,11 +13,6 @@ namespace ShaulisBlog.Controllers
     {
         private ShaulisBlogContext db = new ShaulisBlogContext();
 
-        // GET: BlogPosts
-        /*public ActionResult Index()
-        {
-            return View(db.Posts.ToList());
-        }*/
         public ActionResult Index(string postTitle, string authorName)
         {
             var blogPosts = from post in db.Posts
@@ -41,7 +36,9 @@ namespace ShaulisBlog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+          
             BlogPost blogPost = db.Posts.Find(id);
+            
             if (blogPost == null)
             {
                 return HttpNotFound();
@@ -70,13 +67,6 @@ namespace ShaulisBlog.Controllers
                 blogPost._releaseDate = DateTime.Now;
                 db.Posts.Add(blogPost);
                 db.SaveChanges();
-
-                /*if (image != null && image.ContentLength > 0)
-                { image.SaveAs(Server.MapPath("~/Content/images/" + blogPost.ID + ".png")); }
-                if (video != null && video.ContentLength > 0)
-                { video.SaveAs(Server.MapPath("~/Content/video/" + blogPost.ID + ".mp4")); }
-               // blogPost._image = image;
-                //blogPost._video = video;*/
                 return RedirectToAction("Index");
             }
 
@@ -112,29 +102,7 @@ namespace ShaulisBlog.Controllers
             {
                 db.Entry(blogPost).State = EntityState.Modified;
                 db.SaveChanges();
-                /*if (image != null && image.ContentLength > 0)
-                {
-                    var imageName = "";
-                    imageName = blogPost.ID + ".png";
-                    string path = Request.MapPath("~/Content/images/" + imageName);
-                    if (System.IO.File.Exists(path))
-                    {
-                        System.IO.File.Delete(path);
-                    }
-
-                    image.SaveAs(Server.MapPath("~/Content/images/" + blogPost.ID + ".png"));
-                }
-                if (video != null && video.ContentLength > 0)
-                {
-                    var videoName = "";
-                    videoName = blogPost.ID + ".mp4";
-                    string path = Request.MapPath("~/Content/video/" + videoName);
-                    if (System.IO.File.Exists(path))
-                    {
-                        System.IO.File.Delete(path);
-                    }
-                    video.SaveAs(Server.MapPath("~/Content/video/" + blogPost.ID + ".mp4"));
-                }*/
+                
                 return RedirectToAction("Index");
             }
             return View(blogPost);
@@ -164,22 +132,7 @@ namespace ShaulisBlog.Controllers
         {
             BlogPost blogPost = db.Posts.Find(id);
             db.Posts.Remove(blogPost);
-            db.SaveChanges();
-
-            /*var imageName = "";
-            imageName = blogPost.ID + ".png";
-            string photopath = Request.MapPath("~/Content/images/" + imageName);
-            if (System.IO.File.Exists(photopath))
-            {
-                System.IO.File.Delete(photopath);
-            }
-            var videoName = "";
-            videoName = blogPost.ID + ".mp4";
-            string videopath = Request.MapPath("~/Content/video/" + videoName);
-            if (System.IO.File.Exists(videopath))
-            {
-                System.IO.File.Delete(videopath);
-            }*/
+            db.SaveChanges();           
             return RedirectToAction("Index");
         }
 

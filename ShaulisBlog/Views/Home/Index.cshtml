@@ -74,12 +74,19 @@
         </section>
 
         <section>
-            <p>
-                <img src="@item._image" />
-            </p>
-            <p>
-                <iframe width="420" height="345" src="@Url.Content(@item._video)"></iframe>
-            </p>
+            @if (@item._image != null)
+            {
+                <p>
+                    <img src="@item._image" />
+                </p>
+            }
+            @if (@item._video != null)
+            {
+                <p>
+                    <iframe width="420" height="345" src="@Url.Content(@item._video)"></iframe>
+                </p>
+            }
+            
         </section>
 
         <section id="comments">
