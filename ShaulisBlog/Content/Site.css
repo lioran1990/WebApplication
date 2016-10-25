@@ -8,6 +8,36 @@
 	padding: 0;
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgb(66,113,18);
+    padding: 6px 0px;
+    z-index: 11;
+    top:30px;
+}
+.dropdown-content p a{
+    display: block;
+	margin-right: 0px;
+	width: 160px;
+	font-size: 16px;
+	line-height: 18px;
+	text-align: center;
+	text-decoration: none;
+	color: #777;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 /* Tell the browser to render HTML 5 elements as block */
 header, footer, section, aside, nav, article {
 	display: block;
@@ -135,7 +165,7 @@ nav {
 
 	#intro h2, #intro p {
 		position: relative;
-		z-index: 9999;
+		z-index: 10;
 		width: 436px;
 	}
 	
@@ -281,8 +311,9 @@ aside section {
 		padding: 22px;
 	}
 	
-	#comments article:nth-child(odd) {
-		padding: 21px;
+	#comments article {
+		padding: 18px;
+        margin:10px;
 		background: #E3E3E3;
 		border: 1px solid #d7d7d7;
 		-moz-border-radius: 11px;
@@ -335,10 +366,10 @@ form {
 			vertical-align: top;
 		}
 	
-		form input[type="text"], form input[type="email"], form input[type="url"] {
+		form input[type="text"], form input[type="email"], form input[type="url"], form input[type="password"] {
 			display: table-cell;
 			width: 300px;
-			height: 20px;
+			height: 26px;
 			border: 1px solid #d7d7d7;
 		}
 		

@@ -5,17 +5,24 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Shauli's Blog</title>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
-    <link rel="stylesheet" href="~/Content/Site.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="~/Content/animate.css-master/animate.min.css">
     
+
+    <link href="/Content/css" rel="stylesheet" />    
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" media="screen" />
+    <link rel="stylesheet" href="~/Content/animate.css-master/animate.min.css">
+
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    
+
     
 </head>
 <body>
 	<header>
         @Html.Partial("_LoginPartial")
-        <h1 class="animated fadeInRightBig">Ha-Blog Shel Shauli</h1>
+        <h1>Ha-Blog Shel Shauli</h1>
       
 	</header>
 	<nav>
@@ -23,14 +30,42 @@
         <ul>
             <li class="selected"><a href="#">@Html.ActionLink("Blog", "Index", "Home")</a></li>
            
+            <li>
+                <div class="dropdown">
+                    @Html.ActionLink("Fans Club", "Index", "FansClub")
+                    <div class="dropdown-content">
+                        <p> @Html.ActionLink("Join Fans Club", "Create", "FansClub", new { area = "" }, new { @class = "navbar-brand" })</p>
+                    </div>
+                </div>
+            </li>
 
-            @if (Request.IsAuthenticated)
+            @if (User.IsInRole("Administrator"))
             {
-                <li><a href="#">@Html.ActionLink("Fans Club", "Index", "FansClub")</a></li>
-                <li><a href="#">@Html.ActionLink("Post Manage", "Index", "BlogPosts")</a></li>
+               
+                
+                <li>
+                    <div class="dropdown">
+                        @Html.ActionLink("Post Manage", "Index", "BlogPosts")
+                        <div class="dropdown-content">                            
+                            <p> @Html.ActionLink("Watch statistics ", "Index", "Statistics", new { area = "" }, new { @class = "navbar-brand" })</p>
+                            <p> @Html.ActionLink(" Watch adresses", "Index", "Addresses", new { area = "" }, new { @class = "navbar-brand" }) </p>
+                            <p> @Html.ActionLink("Add New Post to Blog", "Create", "BlogPosts", new { area = "" }, new { @class = "navbar-brand" }) </p>
+                        </div>
+                    </div>
+                </li>
                 if (User.IsInRole("Administrator"))
                 {
-                    <li><a href="#">@Html.ActionLink("Admin Panel", "Index", "Admin")</a></li>
+                    <li>
+                        <div class="dropdown">
+                            @Html.ActionLink("Admin Panel", "Index", "Admin")
+                            <div class="dropdown-content">
+                                <p>
+                                    @Html.ActionLink("Create New User", "Create","Admin", null, new { @class = "navbar-brand" })
+                                    @Html.ActionLink("Edit Roles", "ViewAllRoles", "Admin", null, new { @class = "navbar-brand" })
+                                </p>
+                            </div>
+                        </div>
+                    </li>
                 }
             }
         
@@ -81,8 +116,7 @@
         
     </section>
 
-    @if (User.IsInRole("Administrator"))
-    {
+
         <section>
             <header>
                 <h3 class="animated flash">Advanced Options</h3>
@@ -99,7 +133,7 @@
 
         </section>
 
-    }
+    
     </aside>
 	</div>
     <!-- Footer -->
@@ -124,6 +158,7 @@
 			</section>
 
 		</div>
+
 	</footer>
 
     @Scripts.Render("~/bundles/jquery")

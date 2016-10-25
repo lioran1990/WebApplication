@@ -4,13 +4,6 @@
     ViewBag.Title = "Index";
 }
 
-<th>
-    <h3>
-        @Html.ActionLink("Add New Post to Blog", "Create", "BlogPosts")
-
-       
-    </h3>
-</th>
 <!-- Search section -->
 <section id="search">
     @using (Ajax.BeginForm("FilterPosts", "Home", new AjaxOptions

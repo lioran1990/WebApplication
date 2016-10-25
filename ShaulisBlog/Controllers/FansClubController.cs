@@ -80,6 +80,7 @@ namespace ShaulisBlog.Controllers
         }
 
         // GET: Fans/Edit/5
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -99,6 +100,7 @@ namespace ShaulisBlog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit([Bind(Include = "ID,_firstName,_lastName,_gender,_birthDate,_seniority,_address")] Fan fan)
         {
             if (ModelState.IsValid)
@@ -111,6 +113,7 @@ namespace ShaulisBlog.Controllers
         }
 
         // GET: Fans/Delete/5
+        [Authorize(Roles = "Administrator")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -128,6 +131,7 @@ namespace ShaulisBlog.Controllers
         // POST: Fans/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public ActionResult DeleteConfirmed(int id)
         {
             Fan fan = db.Fans.Find(id);

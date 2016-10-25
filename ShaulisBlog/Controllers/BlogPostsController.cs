@@ -85,6 +85,7 @@ namespace ShaulisBlog.Controllers
         }
 
         // GET: BlogPosts/Edit/5
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -98,12 +99,13 @@ namespace ShaulisBlog.Controllers
             }
             return View(blogPost);
         }
-
+        
         // POST: BlogPosts/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit([Bind(Include = "ID,_title,_author,_websiteOfAuthor,_releaseDate,_text,_image,_video")] BlogPost blogPost, HttpPostedFileBase image, HttpPostedFileBase video)
         {
             if (ModelState.IsValid)
@@ -139,6 +141,7 @@ namespace ShaulisBlog.Controllers
         }
 
         // GET: BlogPosts/Delete/5
+        [Authorize(Roles = "Administrator")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -156,6 +159,7 @@ namespace ShaulisBlog.Controllers
         // POST: BlogPosts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public ActionResult DeleteConfirmed(int id)
         {
             BlogPost blogPost = db.Posts.Find(id);

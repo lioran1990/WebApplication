@@ -311,17 +311,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Fans\Create.cshtml" />
-    <Content Include="Views\Fans\Delete.cshtml" />
-    <Content Include="Views\Fans\Details.cshtml" />
-    <Content Include="Views\Fans\Edit.cshtml" />
-    <Content Include="Views\Fans\Index.cshtml" />
     <Content Include="Views\FansClub\Create.cshtml" />
     <Content Include="Views\FansClub\Index.cshtml" />
     <Content Include="Views\FansClub\Edit.cshtml" />
     <Content Include="Views\FansClub\Delete.cshtml" />
     <Content Include="Views\FansClub\Details.cshtml" />
-    <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\BlogPosts\Create.cshtml" />
     <Content Include="Views\BlogPosts\Delete.cshtml" />
     <Content Include="Views\BlogPosts\Details.cshtml" />
