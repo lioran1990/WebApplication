@@ -22,12 +22,20 @@
     </section>
 
     <section>
-        <p>
-            <img src="@Model._image" />
-        </p>
-        <p>
-            <iframe width="420" height="345" src="@Url.Content(@Model._video)"></iframe>
-        </p>
+        @if (@Model._image != null)
+        {
+            <p>
+                <img src="@Model._image" />
+            </p>
+        }
+        
+        @if (@Model._video != null)
+        {
+            <p>
+                <iframe width="420" height="345" src="@Url.Content(@Model._video)"></iframe>
+            </p>
+        }
+        
     </section>
 
     <section id="comments">

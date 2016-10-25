@@ -109,6 +109,7 @@
         </header>
 
         <iframe src="http://www.ynet.co.il/Ext/Comp/Ticker/Dhtml_Flash_Ticker/0,12114,L-184-253-150,00.html?js=1"
+                allowtransparency="true"
                 onload="yq(this).contents().find('#getJSContent').css({ 'position': 'middle', 'display': 'block', 'width': '170px', 'background-color': '#234' });"
                 width="135" height="253" 
                 frameborder="1" marginheight="0"
@@ -116,22 +117,20 @@
         
     </section>
 
+    <section>
+        <header>
+            <h3 class="animated flash">Advanced Options</h3>
+        </header>
+                <ul>
+            <li>
+                @Html.ActionLink("Watch statistics ", "", "Statistics")
+            </li>
 
-        <section>
-            <header>
-                <h3 class="animated flash">Advanced Options</h3>
-            </header>
-                    <ul>
-                <li>
-                    @Html.ActionLink("Watch statistics ", "", "Statistics")
-                </li>
-
-                <li>
-                    @Html.ActionLink(" Watch adresses", "", "Addresses")
-                </li>
-            </ul>
-
-        </section>
+            <li>
+                @Html.ActionLink(" Watch adresses", "", "Addresses")
+            </li>
+        </ul>
+    </section>
 
     
     </aside>
