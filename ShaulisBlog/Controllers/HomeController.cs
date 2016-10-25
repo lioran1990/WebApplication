@@ -129,16 +129,17 @@ namespace ShaulisBlog.Controllers
 
         }
 
-        public ActionResult postComment(int postid, string title, string authorname, string website, string text)
+        public ActionResult postComment(int postid, string title, string authorname, string _websiteOfAuthor, string _text)
         {
             var comment = new BlogComment()
             {
                 PostId = postid,
-                _title = title,
+                _title = " ",
                 _author = authorname,
-                _websiteOfAuthor = website,
-                _text = text
-            };
+                _websiteOfAuthor = _websiteOfAuthor,
+                _text = _text,
+                CommentDate = DateTime.Now
+        };
 
             db.BlogComments.Add(comment);
             db.SaveChanges();

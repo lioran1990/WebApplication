@@ -97,14 +97,16 @@
             <!-- Post Comments section -->
             @foreach (var comment in item.Comments)
             {
-                <article>
-                    <header>
-                        <a href="@comment._websiteOfAuthor">@comment._author</a>
-                    </header>
-                    <section>                        
+               
+                    <article>
+                        <header>
+                            <a href="@comment._websiteOfAuthor">@comment._author</a>
+                            <p>@comment.CommentDate</p>
+                        </header>
                         <p>@comment._text</p>
-                    </section>
-                </article>
+                    </article>
+                    <br />
+            
             }
         </section>
         <!-- Post a comment section -->
@@ -117,21 +119,18 @@
                     <h3>Leave a comment</h3>
 
                     <input type="hidden" name="PostID" value="@item.ID" />
-                    <p>
-                        <label for="Title">Title</label>
-                        <input name="Title" id="Title" type="text" required />
-                    </p>
+                    
                     <p>
                         <label for="AuthorName">Your Name</label>
                         <input name="AuthorName" id="AuthorName" type="text" required />
                     </p>
                     <p>
-                        <label for="AuthorSite">Your Site</label>
-                        <input name="AuthorSite" id="AuthorSite" type="url" />
+                        <label for="_websiteOfAuthor">Your Site</label>
+                        <input name="_websiteOfAuthor" id="_websiteOfAuthor" type="url" />
                     </p>
                     <p>
-                        <label for="Content">Content</label>
-                        <textarea name="Content" id="Content" rows="5" cols="40" required></textarea>
+                        <label for="_text">Content</label>
+                        <textarea name="_text" id="_text" rows="5" cols="40" required></textarea>
                     </p>
                     <p><input type="submit" value="Post comment" /></p>
                 }

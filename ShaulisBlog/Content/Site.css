@@ -309,11 +309,11 @@ aside section {
 	#comments article {
 		display: table;
 		padding: 22px;
+       
 	}
 	
 	#comments article {
-		padding: 18px;
-        margin:10px;
+	
 		background: #E3E3E3;
 		border: 1px solid #d7d7d7;
 		-moz-border-radius: 11px;
