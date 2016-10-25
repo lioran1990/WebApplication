@@ -6,19 +6,9 @@
 
 <th>
     <h3>
-        @Html.ActionLink("Add New Post to Blog | ", "Create", "BlogPosts")
+        @Html.ActionLink("Add New Post to Blog", "Create", "BlogPosts")
 
-        @if (User.IsInRole("Administrator"))
-        {
-
-
-            @Html.ActionLink("Watch statistics |", "", "Statistics")
-
-
-            @Html.ActionLink(" Watch adresses", "", "Addresses")
-
-
-        }
+       
     </h3>
 </th>
 <!-- Search section -->
@@ -65,6 +55,7 @@
                 <option>10</option>
             </datalist>
         </p>
+   
         <input type="submit" value="Search"  style="float: right;" >
     }
 </section>
@@ -83,9 +74,9 @@
                     <h2>@item._title</h2>
                     <p>Posted on @item._releaseDate  by <a href="@item._websiteOfAuthor">@item._author</a> - <a href="#comments"> @item.Comments.Count  Comments</a></p>
                 </header>
-                <div>
+                <div align="right" dir="rtl">
                     <p>@item._text</p>
-                </div>
+                </div="right">
             </article>
         </section>
 
