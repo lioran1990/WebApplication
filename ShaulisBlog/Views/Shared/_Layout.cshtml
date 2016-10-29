@@ -27,21 +27,17 @@
         <!-- Navigation -->
         <ul>
             <li class="selected"><a href="#">@Html.ActionLink("Blog", "Index", "Home")</a></li>
-           
-            <li>
-                <div class="dropdown">
-                    @Html.ActionLink("Fans Club", "Index", "FansClub")
-                    <div class="dropdown-content">
-                        <p> @Html.ActionLink("Join Fans Club", "Create", "FansClub", new { area = "" }, new { @class = "navbar-brand" })</p>
-                        <p> @Html.ActionLink("Fans By Gender Report", "GroupFansByGender", "FansClub", new { area = "" }, new { @class = "navbar-brand" })</p>
-                    </div>
-                </div>
-            </li>
-
-            @if (User.IsInRole("Administrator"))
+           @if (User.IsInRole("Administrator"))
             {
-               
-                
+                <li>
+                    <div class="dropdown">
+                        @Html.ActionLink("Fans Club", "Index", "FansClub")
+                        <div class="dropdown-content">
+                            <p> @Html.ActionLink("Join Fans Club", "Create", "FansClub", new { area = "" }, new { @class = "navbar-brand" })</p>
+                            <p> @Html.ActionLink("Fans By Gender Report", "GroupFansByGender", "FansClub", new { area = "" }, new { @class = "navbar-brand" })</p>
+                        </div>
+                    </div>
+                </li>
                 <li>
                    
                         <div class="dropdown">
