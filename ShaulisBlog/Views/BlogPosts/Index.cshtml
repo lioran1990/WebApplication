@@ -3,8 +3,11 @@
 @{
     ViewBag.Title = "Post Management";
 }
+
+@if (User.IsInRole("Administrator"))
+{
 <p>
-    <h2>Post Management</h2>
+    <h2>Posts Management</h2>
     @using (Html.BeginForm())
     {
         <table  class="table-condensed" align="center" >
@@ -85,3 +88,11 @@
 </table>
 
 <button type="button" style="float:right;">@Html.ActionLink("Add New Post to Blog", "Create")</button>
+}
+else
+{
+<span>Restricted Area. Please Log-in as a Admin user!</span>
+<br />
+@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+
+}

@@ -6,6 +6,8 @@
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="~/Scripts/Statistics.js"></script>
 
+@if (User.IsInRole("Administrator"))
+{
 <h2>Shaulis Blog Statistics</h2>
 
 <button type="button" id="ShowPostsPerDay" class="statisticsQuestion">Posts per day</button>
@@ -24,3 +26,16 @@
 
         </script>
     }
+}
+
+else
+{
+    <span>Restricted Area. Please Log-in as a Admin user!</span>
+    <br />
+    @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+
+}
+
+
+
+

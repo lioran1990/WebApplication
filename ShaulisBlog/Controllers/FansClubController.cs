@@ -14,7 +14,7 @@ namespace ShaulisBlog.Controllers
     {
         private ShaulisBlogContext db = new ShaulisBlogContext();
 
-        
+      
         public ActionResult Index(string firstName, string lastName, string gender)
         {
             var GenderLst = new List<Gender>();

@@ -111,7 +111,7 @@
         </section>
         <!-- Post a comment section -->
         <section>
-            @if (User.IsInRole("Administrator"))
+            @if (User.IsInRole("Administrator") || User.IsInRole("Fan"))
             {
                 using (Html.BeginForm("postComment", "Home", FormMethod.Post))
                 {

@@ -4,7 +4,12 @@
     ViewBag.Title = "Addresses";
 }
 
+
+@if (User.IsInRole("Administrator"))
+{
+
 <h2>Addresses</h2>
+    <h3>Fans local address on the map</h3>
 
 <div id="map"></div>
 <h3 dir="rtl" id="errors"></h3>
@@ -62,6 +67,16 @@
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6Tu_cn3LHI6cLO9JJviQP4PFZz9yHsdc&callback=initMap">
     </script>
+}
+
+}
+
+else
+{
+    <span>Restricted Area. Please Log-in as a Admin user!</span>
+    <br />
+    @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+
 }
 
 
