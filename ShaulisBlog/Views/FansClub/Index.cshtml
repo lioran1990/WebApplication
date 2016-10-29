@@ -3,6 +3,9 @@
 @{
     ViewBag.Title = "Fan Club Index";
 }
+
+@if (User.IsInRole("Administrator"))
+{
 <p>
     <h2>Fan Club</h2>
     @using (Html.BeginForm())
@@ -107,4 +110,14 @@
 }
 </table>
 <button type="button" style="float:right;">@Html.ActionLink("Add New Fan to Club", "Create")</button>
+
+}
+
+else
+{
+    <span>Please Log-in as a Admin user!</span>
+    <br />
+    @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+
+}
 
