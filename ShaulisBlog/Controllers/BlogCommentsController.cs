@@ -106,11 +106,12 @@ namespace ShaulisBlog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CommentID,PostId,_title,_author,_websiteOfAuthor,_text")] BlogComment blogComment)
+        public ActionResult Edit([Bind(Include = "CommentID,PostId,_title,_author,_websiteOfAuthor,_text, CommentDate")] BlogComment blogComment)
         {
             if (ModelState.IsValid)
-            {
+            {   
                 db.Entry(blogComment).State = EntityState.Modified;
+                blogComment.CommentDate = DateTime.Now;
                 db.SaveChanges();
                 return RedirectToAction("Index", new { id = blogComment.PostId });
             }
