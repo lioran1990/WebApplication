@@ -41,6 +41,17 @@ namespace ShaulisBlog.Controllers
             }
             return View(fans);
         }
+        public ActionResult GroupFansByGender()
+        {
+            IQueryable<FanToGenderGroup> data = from fan in db.Fans
+                                              group fan by fan._gender into Gender
+                                              select new FanToGenderGroup()
+                                              {
+                                                  gender = Gender.Key,
+                                                  fansCount = Gender.Count()
+                                              };
+            return View(data);           
+        }
         
         public ActionResult Details(int? id)
         {

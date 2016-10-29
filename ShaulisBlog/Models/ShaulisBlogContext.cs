@@ -16,6 +16,5 @@ namespace ShaulisBlog.Models
         public System.Data.Entity.DbSet<ShaulisBlog.Models.BlogPost> Posts { get; set; }
 
         public System.Data.Entity.DbSet<ShaulisBlog.Models.BlogComment> BlogComments { get; set; }
-
     }
 }

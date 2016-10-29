@@ -57,5 +57,16 @@ namespace ShaulisBlog.Models
             this._seniority = copy._seniority;
             this._address = copy._address;
         }
+        
     }
+    public class FanToGenderGroup
+    {
+        [Key]
+        [DisplayName("Gender")]
+        public Gender gender { get; set; }
+        [DisplayName("Amout of Fans")]
+        public int fansCount { get; set; }
+    }
+
+
 }

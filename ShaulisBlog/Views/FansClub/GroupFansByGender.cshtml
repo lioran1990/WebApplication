@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ShaulisBlog.Models.FanToGenderGroup>
+
+@{
+    ViewBag.Title = "GroupFanByGender";
+}
+
+<h2>Fans By Gender</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fansCount)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.gender)
+            </td>
+            <td>
+                @item.fansCount
+            </td>
+        </tr>
+    }
+
+</table>
