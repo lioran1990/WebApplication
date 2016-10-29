@@ -32,6 +32,7 @@ namespace ShaulisBlog.Models
 
         [Required]
         [DisplayName("Birth Date")]
+        [DataType(DataType.Date)]
         public DateTime _birthDate { get; set; }
 
         [Required]
