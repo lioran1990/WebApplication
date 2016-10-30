@@ -4,6 +4,8 @@
     ViewBag.Title = "GroupFanByGender";
 }
 
+@if (User.IsInRole("Administrator"))
+{
 <h2>Fans By Gender</h2>
 
 <table class="table">
@@ -30,3 +32,12 @@
     }
 
 </table>
+}
+
+else
+{
+    <span>Restricted Area. Please Log-in as a Admin user!</span>
+    <br />
+    @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+
+}

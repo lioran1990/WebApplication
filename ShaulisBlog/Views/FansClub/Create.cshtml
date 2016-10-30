@@ -4,14 +4,14 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Create a Fan</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h3>Fan</h3>
+       
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -24,7 +24,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model._lastName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-4">
                 @Html.EditorFor(model => model._lastName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model._lastName, "", new { @class = "text-danger" })
             </div>
@@ -32,7 +32,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model._gender, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-2">
                 @Html.EnumDropDownListFor(model => model._gender, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model._gender, "", new { @class = "text-danger" })
             </div>
@@ -40,15 +40,15 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model._birthDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model._birthDate, new { htmlAttributes = new { @class = "datepicker", @Name = "birthdate", @PlaceHolder = "mm/dd/yyyy" } })                
+            <div class="col-md-4">
+               @Html.EditorFor(model => model._birthDate, new { htmlAttributes = new { @class = "datepicker", @Name = "birthdate", @PlaceHolder = "mm/dd/yyyy" } })
                 @Html.ValidationMessageFor(model => model._birthDate, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model._seniority, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-4">
                 @Html.EditorFor(model => model._seniority, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model._seniority, "", new { @class = "text-danger" })
             </div>
@@ -56,7 +56,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model._address, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-4">
                 @Html.EditorFor(model => model._address, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model._address, "", new { @class = "text-danger" })
             </div>

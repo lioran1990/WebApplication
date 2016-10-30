@@ -47,7 +47,7 @@ namespace ShaulisBlog.Controllers
         }
 
         // GET: BlogPosts/Create
-        [Authorize(Roles = "Administrator")]
+       
         public ActionResult Create()
         {
 

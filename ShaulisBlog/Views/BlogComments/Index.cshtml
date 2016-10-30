@@ -4,9 +4,9 @@
     ViewBag.Title = "Comments";
 }
 
-<h2>Comments</h2>
-@if (User.IsInRole("Administrator"))
-{
+
+@if (User.IsInRole("Administrator") || User.IsInRole("Fan"))
+{   <h2>Comments</h2>
     using (Html.BeginForm())
     {
         <table border="0" align="center">
@@ -97,4 +97,10 @@
 
     </table>
 }
+else
+{
+    <span>Restricted Area. Please Log-in as a Admin user!</span>
+    <br />
+    @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
 
+}
