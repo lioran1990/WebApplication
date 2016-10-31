@@ -4,7 +4,7 @@
     ViewBag.Title = "Fan Club Index";
 }
 
-@if (User.IsInRole("Administrator"))
+@if (User.IsInRole("Administrator") || User.IsInRole("Fan"))
 {
 <p>
     <h2>Fan Club</h2>

@@ -1,5 +1,7 @@
 ﻿<!DOCTYPE html>
+
 <html>
+
 <head>
     
     <meta charset="utf-8" />
@@ -122,7 +124,7 @@
                 marginwidth="0" scrolling="no"></iframe>
         
     </section>
-
+    
 @if (User.IsInRole("Administrator"))
 {
         <section>
@@ -141,12 +143,33 @@
             
         </section>
 }
+        <section>
+            <canvas id="myCanvas" width="150" height="150">
+                Your browser does not support the HTML5 canvas tag.
+            </canvas>
+
+            <script>
+                var c = document.getElementById("myCanvas");
+                var ctx = c.getContext("2d");
+                ctx.fillStyle = "red";
+                ctx.fillRect(20, 20, 75, 50);
+
+                //Turn transparency on
+                ctx.globalAlpha = 0.2;
+                ctx.fillStyle = "blue";
+                ctx.fillRect(50, 50, 75, 50);
+                ctx.fillStyle = "green";
+                ctx.fillRect(80, 80, 75, 50);
+            </script>
+         </section>
     </aside>
 
 
 	</div>
     <!-- Footer -->
-	<footer>
+	
+    <footer>
+
 		<div>
 			<section id="about">
 					<h3 class="animated flash">About</h3>

@@ -84,7 +84,7 @@ namespace ShaulisBlog.Controllers
             {
                 db.Fans.Add(fan);
                 db.SaveChanges();
-                return RedirectToAction("Index", "Home", null);
+                return RedirectToAction("Index", "FansClub", null);
             }
 
             return View(fan);

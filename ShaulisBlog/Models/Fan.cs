@@ -32,8 +32,8 @@ namespace ShaulisBlog.Models
 
         [Required]
         [DisplayName("Birth Date")]
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
-        [DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        //[DataType(DataType.Date)]
         public DateTime _birthDate { get; set; }
 
         [Required]
